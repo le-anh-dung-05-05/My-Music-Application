@@ -4,7 +4,7 @@ import 'package:flutter_spotify_application/widgets/album_card.dart';
 
 class AlbumView extends StatefulWidget {
   final ImageProvider image;
-  
+
   const AlbumView({required Key key, required this.image}) : super(key: key);
   @override
   _AlbumViewState createState() => _AlbumViewState();
@@ -176,30 +176,14 @@ class _AlbumViewState extends State<AlbumView> {
                               AlbumCard(
                                 size: cardSize,
                                 label: "Get Turnt",
-                                image: AssetImage("assets/album3.jpg"),onTap: null,
+                                image: AssetImage("assets/album3.jpg"),
+                                onTap: null,
                               ),
                               AlbumCard(
                                 size: cardSize,
                                 label: "Get Turnt",
-                                image: AssetImage("assets/album5.jpg"), onTap: null,
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 16),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              AlbumCard(
-                                size: cardSize,
-                                label: "Get Turnt",
-                                image: AssetImage("assets/album6.jpg"), onTap: null,
-                              ),
-                              AlbumCard(
-                                size: cardSize,
-                                label: "Get Turnt",
-                                image: AssetImage("assets/album9.jpg"), onTap: null,
+                                image: AssetImage("assets/album5.jpg"),
+                                onTap: null,
                               ),
                             ],
                           ),
@@ -212,12 +196,34 @@ class _AlbumViewState extends State<AlbumView> {
                               AlbumCard(
                                 size: cardSize,
                                 label: "Get Turnt",
-                                image: AssetImage("assets/album10.jpg"), onTap: null,
+                                image: AssetImage("assets/album6.jpg"),
+                                onTap: null,
                               ),
                               AlbumCard(
                                 size: cardSize,
                                 label: "Get Turnt",
-                                image: AssetImage("assets/album4.jpg"), onTap: null,
+                                image: AssetImage("assets/album9.jpg"),
+                                onTap: null,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 16),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              AlbumCard(
+                                size: cardSize,
+                                label: "Get Turnt",
+                                image: AssetImage("assets/album10.jpg"),
+                                onTap: null,
+                              ),
+                              AlbumCard(
+                                size: cardSize,
+                                label: "Get Turnt",
+                                image: AssetImage("assets/album4.jpg"),
+                                onTap: null,
                               ),
                             ],
                           ),
