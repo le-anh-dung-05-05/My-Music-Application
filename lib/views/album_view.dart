@@ -10,6 +10,10 @@ class AlbumView extends StatefulWidget {
   _AlbumViewState createState() => _AlbumViewState();
 }
 
+bool _isPressed = false;
+
+enum SelectItems { itemOne, itemTwo, itemThree }
+
 class _AlbumViewState extends State<AlbumView> {
   late ScrollController scrollController;
   double imageSize = 0;
@@ -46,6 +50,7 @@ class _AlbumViewState extends State<AlbumView> {
 
   @override
   Widget build(BuildContext context) {
+    SelectItems? selectItems;
     final cardSize = MediaQuery.of(context).size.width / 2 - 32;
     return Scaffold(
       body: Stack(
@@ -141,9 +146,38 @@ class _AlbumViewState extends State<AlbumView> {
                                   children: [
                                     Row(
                                       children: [
-                                        Icon(Icons.favorite),
-                                        SizedBox(width: 16),
-                                        Icon(Icons.more_horiz),
+                                        GestureDetector(
+                                            onTap: () {
+                                              setState(() =>
+                                                  _isPressed = !_isPressed);
+                                            },
+                                            child: Icon(Icons.favorite_sharp,
+                                                // color: Colors.redAccent,
+                                                color: (_isPressed)
+                                                    ? Colors.red
+                                                    : Colors.white)),
+                                        PopupMenuButton<SelectItems>(
+                                          initialValue: selectItems,
+                                          onSelected: (SelectItems item){
+                                            setState(() {
+                                              selectItems=item;
+                                            });
+                                          }, 
+                                          itemBuilder: (BuildContext context) => <PopupMenuEntry<SelectItems>>[
+                                              const PopupMenuItem<SelectItems>(
+                                                value: SelectItems.itemOne,
+                                                child: Text('Item 1'),
+                                              ),
+                                              const PopupMenuItem<SelectItems>(
+                                                value: SelectItems.itemTwo,
+                                                child: Text('Item 2'),
+                                              ),
+                                              const PopupMenuItem<SelectItems>(
+                                                value: SelectItems.itemThree,
+                                                child: Text('Item 3'),
+                                              ),
+                                          ],
+                                        )
                                       ],
                                     ),
                                   ],
