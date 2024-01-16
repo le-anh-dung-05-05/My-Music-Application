@@ -156,27 +156,52 @@ class _AlbumViewState extends State<AlbumView> {
                                                 color: (_isPressed)
                                                     ? Colors.red
                                                     : Colors.white)),
-                                        PopupMenuButton<SelectItems>(
-                                          initialValue: selectItems,
-                                          onSelected: (SelectItems item){
-                                            setState(() {
-                                              selectItems=item;
-                                            });
-                                          }, 
-                                          itemBuilder: (BuildContext context) => <PopupMenuEntry<SelectItems>>[
-                                              const PopupMenuItem<SelectItems>(
-                                                value: SelectItems.itemOne,
-                                                child: Text('Item 1'),
-                                              ),
-                                              const PopupMenuItem<SelectItems>(
-                                                value: SelectItems.itemTwo,
-                                                child: Text('Item 2'),
-                                              ),
-                                              const PopupMenuItem<SelectItems>(
-                                                value: SelectItems.itemThree,
-                                                child: Text('Item 3'),
-                                              ),
-                                          ],
+                                        // PopupMenuButton<SelectItems>(
+                                        //   initialValue: selectItems,
+                                        //   onSelected: (SelectItems item){
+                                        //     setState(() {
+                                        //       selectItems=item;
+                                        //     });
+                                        //   },
+                                        //   itemBuilder: (BuildContext context) => <PopupMenuEntry<SelectItems>>[
+                                        //       const PopupMenuItem<SelectItems>(
+                                        //         value: SelectItems.itemOne,
+                                        //         child: Text('Item 1'),
+                                        //       ),
+                                        //       const PopupMenuItem<SelectItems>(
+                                        //         value: SelectItems.itemTwo,
+                                        //         child: Text('Item 2'),
+                                        //       ),
+                                        //       const PopupMenuItem<SelectItems>(
+                                        //         value: SelectItems.itemThree,
+                                        //         child: Text('Item 3'),
+                                        //       ),
+                                        //   ],
+                                        // )
+                                        MenuAnchor(
+                                          builder: (BuildContext context,
+                                              MenuController controller,
+                                              Widget? child) {
+                                            return IconButton(
+                                              onPressed: () {
+                                                if (controller.isOpen) {
+                                                  controller.close();
+                                                } else {
+                                                  controller.open();
+                                                }
+                                              },
+                                              icon:
+                                                  const Icon(Icons.more_horiz),
+                                            );
+                                          },
+                                          menuChildren: List<MenuItemButton>.generate(
+                                           3,
+                                           (int index) => MenuItemButton(
+                                             onPressed: () =>
+                                                 setState(() => selectItems = SelectItems.values[index]),
+                                             child: Text('Item ${index + 1}'),
+                                           ),
+                                          ),
                                         )
                                       ],
                                     ),

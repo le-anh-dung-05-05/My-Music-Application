@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_spotify_application/views/album_view.dart';
+// import 'package:flutter_spotify_application/views/album_view.dart';
 import 'package:flutter_spotify_application/widgets/album_card.dart';
 import 'package:flutter_spotify_application/widgets/song_card.dart';
 
